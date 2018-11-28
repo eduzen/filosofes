@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+
+  filosofes:
+    build: .
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000", "--settings=filosofes.settings.docker"]
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    environment:
+      - SECRET_KEY=changemeinprod
+      - DB_USER=postgres
+      - DB_NAME=postgres
+      - DB_PASS=secret
+      - DB_SERVICE=postgres
+    links:
+      - postgres
+    depends_on:
+      - postgres
+
+  postgres:
+    restart: always
+    image: postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_PASSWORD=secret
+
+volumes:
+  postgres-data:
