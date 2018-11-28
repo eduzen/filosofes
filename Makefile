@@ -11,7 +11,7 @@ help:
 	@echo "bootstrap --build containers, run django migrations, load fixtures and create the a superuser"
 
 build:
-	docker-compose build --no-cache filosofes
+	docker-compose build filosofes
 
 start:
 	docker-compose up -d filosofes
@@ -43,12 +43,12 @@ dockershell:
 	docker-compose run --rm filosofes /bin/bash
 
 migrations:
-	docker-compose run --rm filosofes python3 manage.py makemigrations
+	docker-compose run --rm filosofes python manage.py makemigrations --settings=filosofes.settings.docker
 
 migrate:
-	docker-compose run --rm filosofes python3 manage.py migrate
+	docker-compose run --rm filosofes python manage.py migrate --settings=filosofes.settings.docker
 
 shell_plus:
-	docker-compose run --rm filosofes python3 manage.py shell_plus
+	docker-compose run --rm filosofes python manage.py shell_plus --settings=filosofes.settings.docker
 
 .PHONY: help start stop ps clean test dockershell shell_plus only_test pep8
