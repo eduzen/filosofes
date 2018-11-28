@@ -41,6 +41,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'ckeditor',
     'ckeditor_uploader',
+    'django_extensions',
 ]
 
 APPS = [
