@@ -16,6 +16,9 @@ build:
 start:
 	docker-compose up -d filosofes
 
+logs:
+	docker-compose logs -f --tail=30 filosofes
+
 up:
 	docker-compose up filosofes
 

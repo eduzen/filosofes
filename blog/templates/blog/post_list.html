@@ -1,0 +1,8 @@
+<h1>Posts</h1>
+<ul>
+{% for post in object_list %}
+    <li>{{ post.pub_date|date }} - {{ post.title}}</li>
+{% empty %}
+    <li>No articles yet.</li>
+{% endfor %}
+</ul>
