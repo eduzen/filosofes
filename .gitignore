@@ -105,5 +105,5 @@ venv.bak/
 
 # vscode
 .vscode/
-
+*.code-workspace
 media/
