@@ -1,0 +1,13 @@
+{% extends 'filosofes/base.html' %}
+
+{% block body %}
+
+  <div class="blog-post">
+
+    <h2 class="blog-post-title">{{ object.title }}</h2>
+    <hr />
+    <a href="/author/{{object.author.slug}}">{{object.author.first_name}} {{object.author.last_name}}</a>
+    {{object.summary}}
+  </div>
+
+{% endblock %}

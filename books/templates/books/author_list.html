@@ -1,0 +1,15 @@
+{% extends 'filosofes/base.html' %}
+
+{% block body %}
+{% for author in object_list %}
+  <div class="blog-post">
+
+    <h2 class="blog-post-title">{{ author.last_name }} {{ author.first_name }}</h2>
+    <p class="blog-post-meta">{{ author.last_name }} <a href="/author/{{author.slug}}">Detail</a></p>
+    <hr />
+  </div>
+{% empty %}
+    <li>No author yet.</li>
+{% endfor %}
+
+{% endblock %}

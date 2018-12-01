@@ -1,0 +1,15 @@
+{% extends 'filosofes/base.html' %}
+
+{% block body %}
+{% for book in object_list %}
+  <div class="blog-post">
+
+    <h2 class="blog-post-title">{{ book.title }}</h2>
+    <p class="blog-post-meta">{{ post.published_date|date }} <a href="/book/{{book.slug}}">Detail</a></p>
+    <hr />
+  </div>
+{% empty %}
+    <li>No books yet.</li>
+{% endfor %}
+
+{% endblock %}
