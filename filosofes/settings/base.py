@@ -142,3 +142,18 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
+
+CKEDITOR_CONFIGS = {
+    "awesome_ckeditor": {"toolbar": "full"},
+    "default": {
+        "toolbar": "full",
+        "autoParagraph": "false",
+        "breakBeforeOpen": "false",
+        "breakAfterOpen": "false",
+        "breakBeforeClose": "false",
+        "breakAfterClose": "false",
+        "enterMode": "false",
+        "extraPlugins": ",".join(["codesnippet"]),
+    },
+    "autoParagraph": "false",
+}

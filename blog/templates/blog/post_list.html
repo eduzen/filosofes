@@ -1,12 +1,16 @@
 {% extends 'filosofes/base.html' %}
 
 {% block body %}
-<h1>Posts</h1>
-<ul>
 {% for post in object_list %}
-    <li>{{ post.pub_date|date }} - {{ post.title}}</li>
+  <div class="blog-post">
+
+    <h2 class="blog-post-title">{{ post.title }}</h2>
+    <p class="blog-post-meta">{{ post.published_date|date }} <a href="/post/{{ post.slug}}">Mark</a></p>
+    <hr />
+    <p>{{ post.headline|safe }}</p>
+  </div>
 {% empty %}
     <li>No articles yet.</li>
 {% endfor %}
-</ul>
+
 {% endblock %}

@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 from django.utils import timezone
 
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -18,8 +19,14 @@ class Post(models.Model):
     image = models.ImageField(upload_to="post-img/%Y/%m/%d", null=True, blank=True)
     created_date = models.DateField(default=timezone.now)
     published_date = models.DateField(null=True, blank=True)
+    slug = models.SlugField(max_length=50, blank=True, null=True)
 
     objects = PublishedPost.as_manager()
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title[:49])
+        super(Post, self).save(*args, **kwargs)
 
     def publish(self):
         self.published_date = timezone.now()

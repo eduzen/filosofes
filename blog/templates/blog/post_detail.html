@@ -1,0 +1,16 @@
+{% extends 'filosofes/base.html' %}
+
+{% block body %}
+
+  <div class="blog-post">
+
+    <h2 class="blog-post-title">{{ object.title }}</h2>
+    <p class="blog-post-meta">{{ object.published_date|date }} <a href="/post/{{ object.slug}}">Mark</a></p>
+    <hr />
+    <p>{{ object.headline|safe }}</p>
+    <hr />
+    <p text-justify>{{ object.content|safe }}</p>
+
+  </div>
+
+{% endblock %}
