@@ -15,8 +15,11 @@ services:
       - DB_NAME=postgres
       - DB_PASS=secret
       - DB_SERVICE=postgres
+      - WDB_SOCKET_SERVER=wdb
+      - WDB_NO_BROWSER_AUTO_OPEN=true
     links:
       - postgres
+      - wdb
     depends_on:
       - postgres
 
@@ -27,6 +30,11 @@ services:
       - postgres-data:/var/lib/postgresql/data/
     environment:
       - POSTGRES_PASSWORD=secret
+
+  wdb:
+    image: kozea/wdb
+    ports:
+        - "1984:1984"
 
 volumes:
   postgres-data:

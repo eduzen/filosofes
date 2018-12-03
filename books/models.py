@@ -1,8 +1,24 @@
+import logging
+
 from django.db import models
 from django.urls import reverse
 from django.template.defaultfilters import slugify
-
 from ckeditor_uploader.fields import RichTextUploadingField
+
+logger = logging.getLogger(__name__)
+
+
+def get_path(instance, filename):
+    return f"books/{instance.book.author.slug}/{instance.book.slug}"
+
+
+class BookFile(models.Model):
+    book = models.ForeignKey('Book', on_delete=models.CASCADE)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    file = models.FileField(upload_to=get_path, null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.book.title}"
 
 
 class Book(models.Model):
@@ -30,7 +46,7 @@ class Book(models.Model):
 
     def __str__(self):
         """String for representing the Model object."""
-        return self.title
+        return f"{self.title} - {self.author.last_name}"
 
     def get_absolute_url(self):
         """Returns the url to access a detail record for this book."""

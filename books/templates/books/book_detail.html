@@ -1,13 +1,19 @@
 {% extends 'filosofes/base.html' %}
 
 {% block body %}
-
+<div class="col-md-12 blog-main">
+  <h3 class="pb-3 mb-4 font-italic border-bottom">
+    Lectura atenta
+  </h3>
   <div class="blog-post">
 
-    <h2 class="blog-post-title">{{ object.title }}</h2>
-    <hr />
+    <h2 class="blog-post-title text-center">{{ object.title }}</h2>
     <a href="/author/{{object.author.slug}}">{{object.author.first_name}} {{object.author.last_name}}</a>
-    {{object.summary}}
-  </div>
+    <hr />
 
+    <div class="text-justify">
+      {{ object.summary|safe }}
+    </div>
+  </div>
+</div>
 {% endblock %}

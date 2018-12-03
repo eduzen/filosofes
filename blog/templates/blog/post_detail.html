@@ -1,6 +1,10 @@
 {% extends 'filosofes/base.html' %}
 
 {% block body %}
+<div class="col-md-12 blog-main">
+  <h3 class="pb-3 mb-4 font-italic border-bottom">
+    Lectura atenta
+  </h3>
 
   <div class="blog-post">
 
@@ -9,8 +13,11 @@
     <hr />
     <p>{{ object.headline|safe }}</p>
     <hr />
-    <p text-justify>{{ object.content|safe }}</p>
+
+    <div class="text-justify">
+      {{ object.content|safe }}
+    </div>
 
   </div>
-
+</div>
 {% endblock %}

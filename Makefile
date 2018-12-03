@@ -48,6 +48,9 @@ migrations:
 migrate:
 	docker-compose run --rm filosofes python manage.py migrate --settings=filosofes.settings.docker
 
+superuser:
+	docker-compose run --rm filosofes python manage.py createsuperuser --settings=filosofes.settings.docker
+
 shell_plus:
 	docker-compose run --rm filosofes python manage.py shell_plus --settings=filosofes.settings.docker
 
