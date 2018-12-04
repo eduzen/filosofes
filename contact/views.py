@@ -15,3 +15,7 @@ class ContactView(FormView):
 
 class ThanksView(TemplateView):
     template_name = "contact/thanks.html"
+
+
+class AboutView(TemplateView):
+    template_name = "contact/about.html"
