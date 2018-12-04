@@ -1,7 +1,13 @@
 -r requirements.txt
-pytest>=4.0.1
 pep8>=1.7.1
 flake8>=3.6.0
 black>=18.9b0
 pylint>=2.2.2
+codecov==2.0.15
+pytest>=4.0.1
+pytest-mock>=1.10
+pytest-sugar>=0.9.1
+pytest-cov>=2.5.1
+pdbpp==0.9.2
+codecov==2.0.15
 wdb
