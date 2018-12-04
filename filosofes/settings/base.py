@@ -42,11 +42,14 @@ THIRD_PARTY_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'django_extensions',
+    'crispy_forms',
+    'captcha',
 ]
 
 APPS = [
     "blog",
     "books",
+    "contact",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + APPS
@@ -157,3 +160,5 @@ CKEDITOR_CONFIGS = {
     },
     "autoParagraph": "false",
 }
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"

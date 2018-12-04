@@ -1,0 +1,16 @@
+{% extends 'filosofes/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-8">
+
+
+            {% if form %}
+                {% csrf_token %}
+                {% crispy form %}
+            {% endif %}
+
+    </div>
+</div>
+{% endblock %}
