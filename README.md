@@ -1,1 +1,1 @@
-# filosofes [![Build Status](https://travis-ci.org/eduzen/filosofes.svg?branch=master)](https://travis-ci.org/eduzen/filosofes)
+# filosofes [![Build Status](https://travis-ci.org/eduzen/filosofes.svg?branch=master)](https://travis-ci.org/eduzen/filosofes) [![codecov](https://codecov.io/gh/eduzen/filosofes/branch/master/graph/badge.svg)](https://codecov.io/gh/eduzen/filosofes)
