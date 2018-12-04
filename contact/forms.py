@@ -6,8 +6,7 @@ from django.http import HttpResponse
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
-
-from nocaptcha_recaptcha.fields import NoReCaptchaField
+from captcha.fields import ReCaptchaField
 
 logger = logging.getLogger(__name__)
 
@@ -16,7 +15,7 @@ class ContactForm(forms.Form):
     name = forms.CharField(label="Nombre", max_length=100, required=True)
     email = forms.EmailField(max_length=150, label="E-mail", required=True)
     message = forms.CharField(label="Consulta", required=True, widget=forms.Textarea)
-    captcha = NoReCaptchaField()
+    captcha = ReCaptchaField()
 
     def __init__(self, *args, **kwargs):
         super(ContactForm, self).__init__(*args, **kwargs)
