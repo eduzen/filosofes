@@ -28,9 +28,9 @@ class Post(models.Model):
         if self.slug:
             return
 
-        slug = slugify(self.title[:49])
-        if Post.objects.filter(slug=slug).exists():
-            self.slug = f"{self.pk}-{slug}"
+        self.slug = slugify(self.title[:49])
+        if Post.objects.filter(slug=self.slug).exists():
+            self.slug = f"{self.pk}-{self.slug}"
         self.save()
 
     def publish(self):
