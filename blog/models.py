@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import signals
 from django.template.defaultfilters import slugify
 from django.utils import timezone
 
@@ -23,10 +24,14 @@ class Post(models.Model):
 
     objects = PublishedPost.as_manager()
 
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title[:49])
-        super(Post, self).save(*args, **kwargs)
+    def generate_slug(self):
+        if self.slug:
+            return
+
+        slug = slugify(self.title[:49])
+        if Post.objects.filter(slug=slug).exists():
+            self.slug = f"{self.pk}-{slug}"
+        self.save()
 
     def publish(self):
         self.published_date = timezone.now()
@@ -37,3 +42,10 @@ class Post(models.Model):
 
     def __str__(self):
         return f"Post: {self.title}"
+
+
+def post_post_save(sender, instance, created, **kwargs):
+    instance.generate_slug()
+
+
+signals.post_save.connect(post_post_save, Post)

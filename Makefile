@@ -34,10 +34,13 @@ clean: stop
 only_test:
 	docker-compose run --rm filosofes pytest
 
+covered_test:
+	docker-compose run --rm filosofes pytest addopts=--cov=. --cov-config setup.cfg
+
 pep8:
 	docker-compose run --rm filosofes flake8
 
-test: pep8 only_test
+test: pep8 covered_test
 
 dockershell:
 	docker-compose run --rm filosofes /bin/bash
@@ -54,4 +57,11 @@ superuser:
 shell_plus:
 	docker-compose run --rm filosofes python manage.py shell_plus --settings=filosofes.settings.docker
 
-.PHONY: help start stop ps clean test dockershell shell_plus only_test pep8
+clean-python:
+	rm -fr build
+	rm -fr dist
+	find . -name '*.pyc' -exec rm -f {} \;
+	find . -name '*.pyo' -exec rm -f {} \;
+	find . -name '*~' -exec rm -f {} \;
+
+.PHONY: help start stop ps clean test dockershell shell_plus only_test pep8 clean-python
