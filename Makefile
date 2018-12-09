@@ -35,7 +35,7 @@ only_test:
 	docker-compose run --rm filosofes pytest
 
 covered_test:
-	docker-compose run --rm filosofes pytest addopts=--cov=. --cov-config setup.cfg
+	docker-compose run --rm filosofes pytest --cov=. --cov-config setup.cfg
 
 pep8:
 	docker-compose run --rm filosofes flake8
