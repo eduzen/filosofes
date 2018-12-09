@@ -1,0 +1,7 @@
+---
+engines:
+ pylint:
+   enabled: true
+   python_version: 3.6
+   disable: B101,C0111
+   ignore: migrations
