@@ -38,7 +38,7 @@ class Post(models.Model):
         self.save()
 
     def published(self):
-        return True if self.published_date else False
+        return bool(self.published_date)
 
     def __str__(self):
         return f"Post: {self.title}"
