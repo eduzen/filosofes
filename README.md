@@ -1,1 +1,2 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1fe6d77911cc441f819212d2e2cdc6b2)](https://app.codacy.com/app/eduzen/filosofes?utm_source=github.com&utm_medium=referral&utm_content=eduzen/filosofes&utm_campaign=Badge_Grade_Dashboard)
 # filosofes [![Build Status](https://travis-ci.org/eduzen/filosofes.svg?branch=master)](https://travis-ci.org/eduzen/filosofes) [![codecov](https://codecov.io/gh/eduzen/filosofes/branch/master/graph/badge.svg)](https://codecov.io/gh/eduzen/filosofes)
